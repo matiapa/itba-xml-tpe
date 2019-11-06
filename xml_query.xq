@@ -3,7 +3,7 @@ declare variable $years as xs:integer external;
 <result>
 	{
 	for $serie in doc("data_short.xml")//Series
-	where max($serie/Obs/@TIME_PERIOD) - min($serie/Obs/@TIME_PERIOD) >= 23
+	where max($serie/Obs/@TIME_PERIOD) - min($serie/Obs/@TIME_PERIOD) >= $years
 	return
 	<serie>
 		<freq>{ doc("metadata.xml")/metadata/cl_freqs/cl_freq[@id = $serie/@FREQ.282]/text() }</freq>

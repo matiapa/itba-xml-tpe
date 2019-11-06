@@ -5,6 +5,5 @@ then
 	echo "cantidad de argumentos invalida"
 	exit 1
 else
-Java net.sf.saxon.Query xml_query.xq>intermediate.xml years="$1"
-
+	java net.sf.saxon.Query years="$1" xml_query.xq > intermediate.xml
 fi
