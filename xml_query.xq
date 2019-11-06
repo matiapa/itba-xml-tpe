@@ -1,3 +1,5 @@
+declare variable $years as xs:integer external;
+
 <result>
 	{
 	for $serie in doc("data_short.xml")//Series
