@@ -1,7 +1,7 @@
 <result>
 	{
-	for $serie in doc("data.xml")//Series
-	where max($serie/obs/@TIME_PERIOD) - min($serie/obs/@TIME_PERIOD) >= $years  <!-- NO FUNCIONA -->
+	for $serie in doc("data_short.xml")//Series
+	where max($serie/Obs/@TIME_PERIOD) - min($serie/Obs/@TIME_PERIOD) >= 23
 	return
 	<serie>
 		<freq>{ doc("metadata.xml")/metadata/cl_freqs/cl_freq[@id = $serie/@FREQ.282]/text() }</freq>
@@ -10,13 +10,17 @@
 		<values>
 			{
 			for $obs in $serie/Obs
+			order by $obs/@TIME_PERIOD
 		    return
-		  	<item>
-				<obs_status>{ doc("metadata.xml")/metadata/cl_obs_status[@id = $serie/@OBS_STATUS]/text() }</obs_status>
-				<obs>{ $serie/@OBS_VALUE }</obs>
+		  	<item TIME_PERIOD="{$obs/@TIME_PERIOD}">
+				<obs_status>{ doc("metadata.xml")/metadata/cl_obs_statuses/cl_obs_status[@id = $obs/@OBS_STATUS]/text() }</obs_status>
+				<obs>{ string($obs/@OBS_VALUE) }</obs>
 			</item>
 			}
 		</values>
 	</serie>
 	}
 </result>
+
+
+
