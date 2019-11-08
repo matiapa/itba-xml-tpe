@@ -8,7 +8,7 @@ declare function local:toYear($period as xs:string?) as xs:decimal? {
 
 <result>
 	{
-	for $serie in doc("data.xml")//Series
+	for $serie in doc("data_short.xml")//Series
 	where max($serie/Obs/local:toYear(@TIME_PERIOD)) - min($serie/Obs/local:toYear(@TIME_PERIOD)) >= $years
 	return
 	<serie>
