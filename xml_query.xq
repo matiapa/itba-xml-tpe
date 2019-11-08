@@ -1,6 +1,6 @@
 declare variable $years as xs:integer external;
 
-declare function local:toYear($var as xs:string?, xs:int) {
+declare function local:toYear($var as xs:string?, xs:integer) {
 	if string-length($var)=4
 		return $var
 	let $anos := substring-befor($var, '-');
