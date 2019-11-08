@@ -8,7 +8,7 @@ declare function local:yearToInt($period as xs:string?) as xs:decimal? {
 
 <result>
 	{
-	for $serie in doc("data_short.xml")//Series
+	for $serie in doc("data.xml")//Series
 	where max($serie/Obs/local:yearToInt(@TIME_PERIOD)) - min($serie/Obs/local:yearToInt(@TIME_PERIOD)) >= $years
 	order by doc("metadata.xml")/metadata/cl_areas/cl_area[@id = $serie/@REF_AREA.282]/text()
 	return
