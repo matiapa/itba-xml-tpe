@@ -1,14 +1,14 @@
 declare variable $years as xs:integer external;
 
-declare function local:toYear($period as xs:string?) as xs:integer? {
-	let $anos := substring($period, 0, 3)
+declare function local:toYear($period as xs:string?) as xs:decimal? {
+	let $anos := xs:int(substring($period, 1, 4))
 	let $interval := if (string-length($period) = 4) then 0 else xs:int(substring-after($period, 'Q'))
-	return xs:int($period)
+	return $anos+0.1*$interval
 };
 
 <result>
 	{
-	for $serie in doc("data_short.xml")//Series
+	for $serie in doc("data.xml")//Series
 	where max($serie/Obs/local:toYear(@TIME_PERIOD)) - min($serie/Obs/local:toYear(@TIME_PERIOD)) >= $years
 	return
 	<serie>
