@@ -65,4 +65,6 @@
 	<xsl:param name="obs" />
 	{"period":"<xsl:value-of select = "$period"/>","obs":"<xsl:value-of select ="$obs"/>"}
 </xsl:template>
+
+  <xsl:output omit-xml-declaration="yes" />
 </xsl:stylesheet>
