@@ -1,7 +1,7 @@
 declare variable $years as xs:integer external;
 
 declare function local:toYear($var as xs:string?) as xs:integer? {
-	let $anos := substring-before($var, '-')
+	let $anos := substring($var, 0, 3)
 	(:let $interval := if (string-length($var) = 4) then 0 else xs:int(substring-after($var, 'Q')):)
 	return xs:int($anos)
 };
