@@ -9,7 +9,7 @@ declare function local:toYear($var as xs:string?) as xs:integer? {
 <result>
 	{
 	for $serie in doc("data_short.xml")//Series
-	where max(toYear($serie/Obs/@TIME_PERIOD)) - min(toYear($serie/Obs/@TIME_PERIOD)) >= $years
+	where max(local:toYear($serie/Obs/@TIME_PERIOD)) - min(local:toYear($serie/Obs/@TIME_PERIOD)) >= $years
 	return
 	<serie>
 		<freq>{ doc("metadata.xml")/metadata/cl_freqs/cl_freq[@id = $serie/@FREQ.282]/text() }</freq>
