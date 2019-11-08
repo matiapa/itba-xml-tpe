@@ -32,7 +32,7 @@
 	<xsl:call-template name="values">
 	</xsl:call-template>
 	]
-	}
+	},
 </xsl:template>
 
 <xsl:template name="generate">
