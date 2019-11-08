@@ -4,7 +4,7 @@ declare function local:toYear($var as xs:string?) as xs:integer? {
 	let $anos := substring-before($var, '-')
 	let $interval := if (string-length($var) = 4) then 0 else substring-after($var, '-')
 	return $anos+0.1*$interval
-}
+};
 
 <result>
 	{
