@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+	<serie>
+		<area>test area</area>
+		<freq>anual</freq>
+		<activity>total</activity>
+		<values>
+			<item TIME_PERIOD="1995">
+				<obs_status>Normal value</obs_status>
+				<obs>10</obs>
+			</item>
+			<item TIME_PERIOD="1997">
+				<obs_status>Normal value</obs_status>
+				<obs>1000</obs>
+			</item>
+			<item TIME_PERIOD="1998">
+				<obs_status>Normal value</obs_status>
+				<obs>3000</obs>
+			</item>
+		</values>
+	</serie>
+</result>
