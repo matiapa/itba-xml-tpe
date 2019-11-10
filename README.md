@@ -1,6 +1,6 @@
 # Trabajo Práctico Especial: Consulta y Transformación de documentos XML 
 ## 1. Acerca del producto
-> La finalidad del presente trabajo es obtener un archivo JSON con la información de las áreas geográficas que tengan datos sobre la cantidad de personas que trabajan, y que esos datos sean de los últimos N años.
+> La finalidad del presente trabajo es obtener un archivo JSON con la información de las áreas geográficas que tengan datos sobre la cantidad de personas que trabajan, y que esos datos sean en un intervalo de N años.
 ## 2. Instalación
 En Linux:
 * Descargar el archivo *tp.sh* donde desee ejecutar el programa. Vamos a referirnos a este destino como *{installationHome}* en adelante.
