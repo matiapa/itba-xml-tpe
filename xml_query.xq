@@ -17,7 +17,7 @@ El formato para TIME_PERIOD puede ser anual o con una especificación por cuatri
 En el último caso se toma el número de cuatrimestre como parte decimal para la precisión del cálculo de años intermedios más adelante :)
 declare function local:yearToInt($period as xs:string?) as xs:decimal? {
 	let $anos := xs:int(substring($period, 1, 4))
-	let $interval := if (string-length($period) = 4) then 0 else xs:int(substring-after($period, 'Q'))
+	let $interval := if (string-length($period) = 4) then 0 else xs:int(substring($period, 7))
 	return $anos+0.1*$interval
 };
 
