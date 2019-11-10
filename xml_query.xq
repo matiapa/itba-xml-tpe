@@ -12,6 +12,12 @@ declare function local:rightTimeFormat($serie as node()) as xs:boolean {
 		return false
 };
 
+(:
+declare function local:rightTimeFormat($serie as node()) as xs:boolean {
+	return matches($serie/*[1], '[0-9]{4}-([A-Z][0-9]*)?')
+} 
+:)
+
 (: Función auxiliar 'yearToInt'
 El formato para TIME_PERIOD puede ser anual o con una especificación por cuatrimestres.
 En el último caso se toma el número de cuatrimestre como parte decimal para la precisión del cálculo de años intermedios más adelante :)
@@ -23,7 +29,7 @@ declare function local:yearToInt($period as xs:string?) as xs:decimal? {
 
 (: # # # # # # # # # # # # # # # # # # # # # # # # # # # #  CONSULTA XQUERY  # # # # # # # # # # # # # # # # # # # # # # # # # # # # :)
 let $data := doc("data.xml")//DataSet
-if (not(has-children($data))) then (error(xs:QName("DATA ERROR"), "No data found"))
+if (not(has-children($data))) then (fn:error(xs:QName("DATA ERROR"), "No data found"))
 else
 return
 	<result>
@@ -31,7 +37,7 @@ return
 		for $serie in doc("data.xml")//Series
 		where max($serie/Obs/local:yearToInt(@TIME_PERIOD)) - min($serie/Obs/local:yearToInt(@TIME_PERIOD)) >= $years
 		if (not(rightTimeFormat($serie)))
-		then (error(xs:QName("TIME_PERIOD ERROR"), "Time format not supported. Annual or quarterly frequencies required"))
+		then (fn:error(xs:QName("TIME_PERIOD ERROR"), "Time format not supported. Annual or quarterly frequencies required"))
 		else
 		order by doc("metadata.xml")/metadata/cl_areas/cl_area[@id = $serie/@REF_AREA.282]/text()
 		return
