@@ -36,7 +36,7 @@ return
 		{
 		for $serie in doc("data.xml")//Series
 		where max($serie/Obs/local:yearToInt(@TIME_PERIOD)) - min($serie/Obs/local:yearToInt(@TIME_PERIOD)) >= $years
-		if (not(rightTimeFormat($serie)))
+		if (not(local:rightTimeFormat($serie)))
 		then (fn:error(xs:QName("TIME_PERIOD ERROR"), "Time format not supported. Annual or quarterly frequencies required"))
 		else
 		order by doc("metadata.xml")/metadata/cl_areas/cl_area[@id = $serie/@REF_AREA.282]/text()
