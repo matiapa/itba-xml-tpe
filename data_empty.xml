@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><MessageGroup>
+<Header>
+	<ID>IREF000001</ID>
+	<Test>false</Test>
+	<Prepared>2019-10-06T23:57:00Z</Prepared>
+	<Sender id="4F0">
+		<Name xml:lang="en" >European Central Bank</Name>
+		<Contact>
+		<Department xml:lang="en" >DG Statistics</Department>
+		<URI>mailto:statistics@ecb.europa.eu</URI></Contact>
+	</Sender>
+	<Extracted>2019-10-06T23:57:00Z</Extracted>
+</Header>
+<DataSet action="Replace">
+</DataSet>
+</MessageGroup>
