@@ -1,4 +1,5 @@
-<xsl:stylesheet>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/result">
 <xsl:choose>
         <xsl:when test="count(//serie)=0">
         {
@@ -8,14 +9,13 @@
 		}
         </xsl:when>
         <xsl:otherwise>
-          <xsl:template match="/result">
-			{"result":
+		{"result":
 			[
 			<xsl:for-each select="./serie">
 				<xsl:call-template name="serie"/>
 				<xsl:if test="position() != last()">
-						 <xsl:text>,</xsl:text>
-					</xsl:if> 
+					 <xsl:text>,</xsl:text>
+				</xsl:if> 
 			</xsl:for-each>
 			]
 			}
@@ -55,17 +55,17 @@
 			</xsl:template>
 
 			<xsl:template name="values">
-				
+
 				<xsl:for-each select="./values/item">
 					<xsl:call-template name="generatevalues">
 						<xsl:with-param name="period" select="./@TIME_PERIOD" />
 						<xsl:with-param name="obs" select="./obs" />
 					</xsl:call-template>
 				<xsl:if test="position() != last()">
-						 <xsl:text>,</xsl:text>
-					</xsl:if>		
+					 <xsl:text>,</xsl:text>
+				</xsl:if>		
 				</xsl:for-each>
-				
+
 			</xsl:template>
 
 			<xsl:template name="generatevalues">
@@ -75,6 +75,6 @@
 			</xsl:template>
 
 			  <xsl:output omit-xml-declaration="yes" />
-        </xsl:otherwise>
+		</xsl:otherwise>
 </xsl:choose>
 </xsl:stylesheet>
