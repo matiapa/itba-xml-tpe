@@ -1,6 +1,6 @@
 # Trabajo Práctico Especial: Consulta y Transformación de documentos XML 
 ## 1. Acerca del proyecto
-> La finalidad del presente trabajo es obtener un archivo JSON con la información de las áreas geográficas que tengan datos sobre la cantidad de personas que trabajan, y que esos datos sean en un intervalo de N años.
+> La finalidad del presente trabajo es obtener un archivo JSON con la información de las áreas geográficas que tengan datos sobre la cantidad de personas que trabajan; y que esos datos sean en un intervalo de N años como mínimo, número elegido por el usuario.
 ## 2. Dependencias
 * Saxon
 ## 3. Instalación
