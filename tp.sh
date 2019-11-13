@@ -6,5 +6,5 @@ then
 	exit 1
 else
 	java net.sf.saxon.Query years="$1" xml_query.xq > intermediate.xml
-	java net.sf.saxon.Transform intermediate.xml json_convert.xsl > out.json
+	java net.sf.saxon.Transform intermediate.xml json_convert.xsl > output.json
 fi
